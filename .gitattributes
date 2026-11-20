@@ -1,0 +1,3 @@
+# Store every file byte-for-byte as written: no line-ending conversion anywhere,
+# so vendor/makefun-app.ts stays identical to the kit's copy on every platform.
+* -text

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vice Cover — GTA-style cover art studio</title>
+  <meta name="description" content="Turn your photos into multi-panel Vice City style cover art. Offline, private, one-click PNG export.">
+  <link rel="stylesheet" href="css/studio.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff2e88'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-weight='bold' font-size='16' fill='white' text-anchor='middle'%3EVI%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <header id="topbar">
+    <div class="brand">
+      <span class="brand-mark">VI</span>
+      <h1>VICE&nbsp;COVER <span class="brand-sub">studio</span></h1>
+    </div>
+    <p class="offline-note">Runs offline · photos never leave this device</p>
+  </header>
+
+  <main id="workspace">
+    <section id="stage" aria-label="Cover preview">
+      <canvas id="preview" width="608" height="760"></canvas>
+      <p id="stage-hint">Drag a panel to reposition · scroll to zoom · drop photos anywhere</p>
+    </section>
+
+    <aside id="controls" aria-label="Cover controls">
+      <section class="control-group">
+        <h2>Layout</h2>
+        <div id="layout-buttons" class="chip-row"></div>
+      </section>
+
+      <section class="control-group">
+        <h2>Color grade</h2>
+        <div id="grade-buttons" class="chip-row"></div>
+      </section>
+
+      <section class="control-group">
+        <h2>Caption</h2>
+        <label class="field">
+          <span>Title</span>
+          <input id="caption" type="text" maxlength="40" value="VICE CITY" autocomplete="off" spellcheck="false">
+        </label>
+        <label class="field">
+          <span>Tagline</span>
+          <input id="tagline" type="text" maxlength="60" value="SUMMER NEVER ENDS" autocomplete="off" spellcheck="false">
+        </label>
+        <div id="style-buttons" class="chip-row"></div>
+      </section>
+
+      <section class="control-group">
+        <h2>Panels</h2>
+        <div id="panel-rows"></div>
+        <div class="action-row">
+          <button id="apply-all" type="button">Photo → all panels</button>
+          <button id="shuffle" type="button">Shuffle scenes</button>
+          <button id="reset-crops" type="button">Reset crops</button>
+        </div>
+      </section>
+
+      <section class="control-group">
+        <h2>Your photos</h2>
+        <label class="upload-btn" for="photo-input">Add photos…</label>
+        <input id="photo-input" type="file" accept="image/*" multiple hidden>
+        <p class="fineprint">Pick several to fill the panels, or use one photo everywhere. Files are read locally and never uploaded.</p>
+      </section>
+
+      <section class="control-group">
+        <h2>Export</h2>
+        <div id="size-buttons" class="chip-row"></div>
+        <button id="export" type="button">Export PNG</button>
+      </section>
+    </aside>
+  </main>
+
+  <div id="toast" role="status"></div>
+  <script type="module" src="js/studio.js"></script>
+</body>
+</html>
